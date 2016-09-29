@@ -1,0 +1,38 @@
+div.container {
+    padding: 0;
+    margin:0;
+}
+
+.backgroundtest {
+    background-color: black ;
+    color:white;
+    font-size: 1.2em;
+    font-weight: 600;
+
+    nav a:hover  {
+        color:white;
+        font-weight: 500;
+        border-width: 3px;
+        border-color: darkorange;
+        border-style: dotted;
+    }
+}
+
+div.hero {
+    margin-top: 0 ; 
+    height: 60vh;
+    background-image: url('https://upload-assets.vice.com/files/2015/08/10/1439223040tumblr_nomov6ZRdi1thk6vpo1_1280.gif');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    }
+
+    h1 {
+    position: relative;
+    left: 70%;
+    top: 60%;
+    margin-top: 0;
+    color: orangered;
+    text-decoration: underline;
+    }
