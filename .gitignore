@@ -1,2 +1,5 @@
 node_modules
 .typer
+src/images
+build/dev/images
+build/prod/images

@@ -7,10 +7,10 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
+
     sourcemaps = require('gulp-sourcemaps'),
     livereload = require('gulp-livereload'),
-    connect = require('gulp-connect'),
-    pug = require('gulp-pug');
+    connect = require('gulp-connect');
 
 // Declare and set variable to take it easy on the typing. 
         // This comment not withstanding
@@ -19,25 +19,31 @@ var env,
     outputDir,
     jsSources,
     htmlSources,
+
+
     sassSources, 
-    cssStyles, 
-    typeScriptSources;
+    sassStyles,
+    cssDest;
 
 
 env = process.env.NODE_ENV || 'development'
 
 if (env == 'development' ) {
     outputDir = 'build/dev/';
-    cssStyles = 'expanded';
+    sassStyles = 'expanded';
+    cssDest = outputDir + '/css';
+
 } else {
     outputDir = 'build/prod/';
-    cssStyles = 'compressed';
+    sassStyles = 'compressed';
+    cssDest = outputDir + '/css';
+
 };
 
-jsSources = ["build/dev/js/*js"];
-htmlSources = ['component/views/*.html'];
-sassSources = ['./sass/*.scss'];
-typeScriptSources = ['components/js/*.js'];
+jsSources = ['./src/scripts/*js'];
+htmlSources = ['./src/component/views/*.html'];
+sassSources = ['./src/sass/*.scss'];
+
 
 
 
@@ -54,7 +60,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(cssStyles))
+    .pipe(gulp.dest(cssDest))
     .pipe(connect.reload());
 
 });
@@ -64,6 +70,7 @@ gulp.task('connect', function() {
     root: outputDir,
     livereload: true
   });
+  
 });
 
 gulp.task('reload', function(){
@@ -77,7 +84,7 @@ gulp.task('watch', function() {
  
   gulp.watch('./sass/*.scss', ['sass']);
   gulp.watch('./build/*/*.html', ['reload']);
-  gulp.watch('css/*.css', ['sass']);
+  gulp.watch(sassSources, ['sass']);
 });
 
-gulp.task('default', ['connect', 'sass','watch'])
+gulp.task('default', ['connect', 'pic-min', 'sass','watch'])

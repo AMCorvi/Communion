@@ -1,0 +1,56 @@
+div.container {
+    padding: 0;
+    margin:0;
+    width:100%;
+
+}
+
+.menuDrawer {
+    background-color: black ;
+    color:white;
+    font-size: 1.2em;
+    font-weight: 600;
+
+    
+}
+
+div.hero {
+    margin-top: 0 ; 
+    height: 60vh;
+    width: 100%;
+    background-image:   url('../images/RedeeConcertPerformance.jpg');
+
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 20px 8px black;
+
+        h1 {
+        margin-top: 0;
+        color: white;
+
+        font-family: sans-serif;
+        position: absolute;
+        text-shadow: 2px 6px 10px;
+        top:50%;
+        bottom: 50%;
+        left: 50%;
+        
+        }
+    }
+
+
+
+
+
+div.container div.featured {
+    width: 100%; 
+    height: 32vh;
+    background-image:url('../images/yunglean.jpg');
+    background-color: cream;
+    background-size:cover;
+    background-attachment: fixed;
+    box-shadow: 0px 30px -20px -20px black;
+}
+
+    
