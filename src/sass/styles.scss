@@ -1,3 +1,5 @@
+// HELPERS
+
 div.container {
     padding: 0;
     margin:0;
@@ -5,19 +7,26 @@ div.container {
 
 }
 
+// removes 'MDL' default margins on headings
+*.plusBoxZero {
+    margin: 0 ;
+    padding: 0 ;
+}
+
 .menuDrawer {
     background-color: black ;
-    color:white;
     font-size: 1.2em;
     font-weight: 600;
 
+    }
     
-}
+
 
 div.hero {
-    margin-top: 0 ; 
     height: 60vh;
     width: 100%;
+    margin-top: 0 ; 
+    border-radius: 0px 0px 5px 5px;
     background-image:   url('../images/RedeeConcertPerformance.jpg');
 
     background-position:center;
@@ -25,16 +34,12 @@ div.hero {
     background-size: cover;
     box-shadow: 0px 20px 8px black;
 
-        h1 {
+        .bannerText {
         margin-top: 0;
         color: white;
 
         font-family: sans-serif;
-        position: absolute;
         text-shadow: 2px 6px 10px;
-        top:50%;
-        bottom: 50%;
-        left: 50%;
         
         }
     }
@@ -42,15 +47,35 @@ div.hero {
 
 
 
-
-div.container div.featured {
+section#featured-section {
     width: 100%; 
-    height: 32vh;
+    height: 38%;
     background-image:url('../images/yunglean.jpg');
-    background-color: cream;
+    background-color: navajowhite ;
     background-size:cover;
     background-attachment: fixed;
-    box-shadow: 0px 30px -20px -20px black;
+    box-shadow: inset 30px 30px 130px 30px black;
+
+
+    .mdl-card {
+        float: left;
+    }
+    
+    
 }
+
+section#music-section {
+    clear: both;
+    width: 100%;
+    height: 38%;
+    background-color: black;
+    box-shadow: 0px 0px 50px 25px white;
+    box-shadow: inset 0px 0px 200px 30px white;
+
+   
+    
+
+}
+
 
     
