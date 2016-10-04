@@ -34,7 +34,7 @@ div.container {
 }
 
 .menuDrawer {
-    background-color: black ;
+    background-color: firebrick ;
     font-size: 1.2em;
     font-weight: 600;
 
@@ -114,16 +114,11 @@ section#tweet-section {
 
     #tweets .tweet  {
 
-        &:nth-child(2n+1) {
-           background-image: url('../images/AcidBurn.gif');
-           background-attachment: fixed;
-           background-size: cover;
-        }
+       
     float: left;
     border-radius: 45px;
     border: 3px ridge navajowhite;
     background-color: ghostwhite;
-    background-attachment: fixed;
     background-image: url('../images/birdFences.gif');
     background-size: cover;
 
@@ -176,7 +171,7 @@ section#tweet-section {
        
         .favoriteTweet {
             float:right;
-            color:mistyrose;
+            color:darkgray;
             transition: color .8s;
     
             &:hover {
