@@ -117,10 +117,21 @@ section#tweet-section {
        
     float: left;
     border-radius: 45px;
-    border: 3px ridge navajowhite;
+    // border: 2px inset red;
     background-color: ghostwhite;
-    background-image: url('../images/birdFences.gif');
+    // background-image: url('../images/birdFences.gif');
     background-size: cover;
+    transition: border .5s, background-color .4s;
+    transition-timing-function: ease-in;
+
+        &:hover {
+            color:white;
+            border: ghostwhite;
+            background-color: firebrick;
+            transition: border 1.2s, background-color 1s;
+            transition-timing-function: ease-in;
+        }
+
 
         
         
@@ -135,21 +146,21 @@ section#tweet-section {
         p.tweetText {
             margin-bottom: 0px;
             font-size: .9em;
-            color:black;
             float: right;
             position: relative;
             // left: 70px;
 
-            &::nth-last-of-type(2n+1){
-                color: white;
-            }
+        }
 
+        .handleLink{
+            text-decoration: none;
         }
 
         .handle {
             color: dodgerblue;
             position: relative;
             top: 15px;
+            text-decoration:none;
             // right: 45px;
             transition: color .5s,font-size .5s,text-decoration .5s;
             transition-timing-function: ease;
@@ -187,3 +198,10 @@ section#tweet-section {
 }
 
 
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link    {
+    color:white;
+
+    &:hover {
+        color:blue;
+    }
+}
