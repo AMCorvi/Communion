@@ -1,0 +1,19 @@
+<div class="tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+	<div class="mdl-card__supporting-text">
+        
+        <img ng-src="{{tweet.user.profile_image_url}}" alt="" class="twitterUserImage" /> 
+		
+        <a href="">
+			<i class="material-icons favoriteTweet">favorite</i>
+		</a>
+
+		<p class="tweetText">{{tweet.text}}</p>
+
+		<a ng-href="http://twitter.com/{{tweet.user.screen_name}}" class="handleLink">
+			<span class="handle">{{tweet.screen_name}}</span>
+		</a>
+
+		<span class="date"> {{tweet.created}} </span>
+
+	</div>
+</div>

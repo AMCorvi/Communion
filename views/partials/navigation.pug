@@ -1,0 +1,21 @@
+.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+    // HEADER
+    header.mdl-layout__header
+      .mdl-layout__header-row
+        span.mdl-layout-title Nichi.RED
+        // Add spacer, to align navigation to the right
+        .mdl-layout-spacer
+        // Navigation. Hidden in small screens.
+        nav.mdl-navigation.mdl-layout--large-screen-only
+          a.mdl-navigation__link(href='#featured-section') Featured
+          a.mdl-navigation__link(href='#music-section') Music
+          a.mdl-navigation__link(href='#tweet-section') Blog
+          a.mdl-navigation__link(href='')
+    // Slide-Out App Drawer
+    .mdl-layout__drawer.menuDrawer
+      span.mdl-layout-title Menu!!
+      nav.mdl-navigation
+        a.mdl-navigation__link(href='') Featured
+        a.mdl-navigation__link(href='') Music
+        a.mdl-navigation__link(href='') Blog
+        a.mdl-navigation__link(href='')

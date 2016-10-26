@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "process.env.NODE_ENV='development && gulp"
+    "dev": "NODE_ENV=development node app" 
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "babel-cli": "^6.14.0"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
@@ -29,6 +30,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "holderjs": "^2.9.4",
-    "material-design-lite": "^1.2.1"
+    "material-design-lite": "^1.2.1",
+    "pug": "^2.0.0-beta6"
   }
 }

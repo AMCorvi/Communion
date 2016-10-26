@@ -1,0 +1,25 @@
+doctype html
+html(lang='en', ng-app='Nichi')
+
+  head
+    meta(charset='UTF-8')
+    title= title
+    script(src='\
+    https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='https://code.getmdl.io/1.2.1/material.red-blue.min.css')
+    script(defer='', src='https://code.getmdl.io/1.2.1/material.min.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js")
+    link(rel='stylesheet', type='', href='./css/styles.css')
+
+  body
+    include navigation.pug
+    include heroBanner.pug
+    include featured-section.pug
+    include music-section.pug
+    include tweet-section.pug
+    //END OF MAIN CONTENT SECTION
+    include footer.pug
+    include scripts.pug

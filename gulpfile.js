@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect');
+    
 
 // Declare and set variable to take it easy on the typing. 
         // This comment not withstanding
@@ -66,6 +67,9 @@ gulp.task('loadInHtml',
 () => gulp.src(htmlSources).pipe(gulp.dest(outputDir))
 );
 
+ 
+
+
 gulp.task('pic-min', function (){
     return gulp.src(imageSources)
         .pipe(imagemin())
@@ -83,7 +87,7 @@ gulp.task('sass', function () {
 });
 
  gulp.task('loadjs', function(){
-     return gulp.src('/src/scripts/*.js')
+     return gulp.src('./src/scripts/*.js')
      .pipe(gulp.dest(outputDir));
 
  });

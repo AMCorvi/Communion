@@ -51,11 +51,18 @@ div.hero {
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
-     border-bottom: 3px ridge lightslategrey;
+    border-bottom: 3px ridge lightslategrey;
     box-shadow: 0px 20px 8px black;
+    display: flex;
+    align-items: center;
+
+    
+
+
+
 
         .bannerText {
-        margin-top: 0;
+        flex: 1 2 auto;
         color: white;
 
         font-family: sans-serif;
@@ -81,7 +88,6 @@ section#featured-section {
     .mdl-card {
         float: left;
         
-      
     }
     
     
@@ -117,7 +123,7 @@ section#tweet-section {
        
     float: left;
     border-radius: 45px;
-    // border: 2px inset red;
+    border: 2px inset coral;
     background-color: ghostwhite;
     // background-image: url('../images/birdFences.gif');
     background-size: cover;
@@ -126,9 +132,9 @@ section#tweet-section {
 
         &:hover {
             color:white;
-            border: ghostwhite;
-            background-color: firebrick;
-            transition: border 1.2s, background-color 1s;
+            border: 0px solid firebrick;
+            background-color: lightcoral;
+            transition: border .1s, background-color .8s;
             transition-timing-function: ease-in;
         }
 

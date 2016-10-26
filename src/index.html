@@ -14,7 +14,7 @@ https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js'>
     <link rel="stylesheet" type="" href="./css/styles.css">
 </head>
 
-<body ng-app="NichiRedApp">
+<body ng-app="nichi">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
         <!--     HEADER       -->
@@ -168,110 +168,16 @@ https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js'>
 
             <!--TWEET SECTION-->
 
-            <div class="container">
-                <section id='tweet-section' class="mdl-color-text--black mdl-grid mdl-grid--no-spacing">
+            <div class="container ">
+                <section ng-controller="twitterCtrl" id='tweet-section' class="mdl-color-text--black mdl-grid mdl-grid--no-spacing">
 
                     <h3 class="plusBoxZero ">
                         Tweets
                     </h3>
 
-                    <div id="tweets">
+                    <div ng-repeat=" tweet in tweets" id="tweets">
                     
-                    <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                    <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
-
-                     <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-
-                        <div class=" mdl-card__supporting-text">
-                            <img src="holder.js/60x60?random=yes" alt="" class="twitterUserImage">
-                            <a href='' > <i class="material-icons favoriteTweet">favorite</i> </a>
-                            <p class="tweetText"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium soluta aut repudiandae quos vel impedit, consectetur quaerat obcaecati laborum. </p>
-                            <a class='handleLink' href=""><span class="handle ">@handle</span></a>
-                            <span class="date">Jan 1, 2017</span>
-                        </div>
-
-                    </div>
+                    
 
                      <div class=" tweet mdl-card mdl-shadow--8dp mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
 
@@ -286,7 +192,7 @@ https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.js'>
                     </div>
 
                      
-
+                    </div>
 
                 </section>
             </div>
