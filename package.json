@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node app" 
+    "dev": "NODE_ENV=development node app"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "holderjs": "^2.9.4",
     "material-design-lite": "^1.2.1",
-    "pug": "^2.0.0-beta6"
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0"
   }
 }

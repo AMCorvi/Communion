@@ -53,7 +53,7 @@ jsSources = ['./src/scripts/*.js'];
 angCtrlSrcs = ['./src/scripts/controllers/*.js'];
 angSvcSrcs = ['./src/scripts/services/*.js'];
 htmlSources = ['./src/*.html'];
-sassSources = ['./src/sass/*.scss'];
+sassSources = ['./src/sass/styles.sass'];
 imageSources = './src/images/*';
 
 
