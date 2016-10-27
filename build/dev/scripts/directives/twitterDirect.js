@@ -1,4 +1,4 @@
-app.directive('twitterPosts', function(){
+app.directive('tweets', function(){
     return {
         restrict: 'E',
         scope: {

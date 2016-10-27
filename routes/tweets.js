@@ -31,8 +31,8 @@ router.get('/user_timeline/:user', function (req, res) {
 
     T.get(userTimelineURL, params, function (err, data, response) {
 
-        tweets = data;
-        return tweets;
+         tweets = data;
+         res.send(tweets);
     });
     
 console.log(   `tweet request served for ${req.params.user}`)

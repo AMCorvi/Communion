@@ -3,7 +3,7 @@ var app = angular.module('Nichi', ['ngResource', 'ngSanitize']);
 
 
 
-app.controller('twitterCtrl',  function ($scope, $resource, $timeout) {
+app.controller('twitterCtrl',  ['$scope','$resource','$timeout', function ($scope, $resource, $timeout) {
 
 
 
@@ -30,15 +30,18 @@ app.controller('twitterCtrl',  function ($scope, $resource, $timeout) {
         };
 
         // create tweet data resource
-        $scope.tweets = $resource('/tweets/:action/:user', params);
+            $scope.tweets = $resource('/tweets/:action/:user', params);
 
-        $scope.tweets.query( { }, function (res) {
+        // call call tweet data resource
+            $scope.tweets.query( { }, function (res) {
 
-        $scope.userTweets = $scope.userTweets.concat(res);
+            $scope.userTweets = $scope.userTweets.concat(res);
 
-        console.log(`Here are the tweets of from ${res}`)
-
+            $timeout(function(){
+                console.log(`Here are the tweets of from ${res}`)
+            }, 8000)
       });
+
 
     };
 
@@ -57,8 +60,23 @@ $scope.getUserTweets = function(){
     getUserTweets();
 };
 
+
 init();
 
+// DEBUG:  Test array to simulate $resource request. 
+$scope.test = [
+    {
+        text: 'Text here',
+        created_at: 2016,
+        screen_name: '@twitter'
+    },
+    {
+        text: 'Text there',
+        created_at: 2015,
+        screen_name: '@litter'
+    }
+];
 
-});
+
+}]);
 
