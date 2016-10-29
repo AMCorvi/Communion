@@ -1,9 +1,8 @@
 'use strict'
-import * as express from 'express';
-import soundcloud from 'config';
-import * as sound from 'soundcloud';
-const  router = express.Router();
-
+const express = require('express'),
+      sound = require('soundcloud'),
+      {soundcloud} = require('../config')
+      
 
 sound.intialize({soundcloud});
 
