@@ -2,58 +2,56 @@
 // ─── DEPENDENCIES ───────────────────────────────────────────────────────────────
 //
 
-    
+
+// NOTE: prefixer needs to be added to 'SASS' task but is currently being ...
+// withheld for editing & readablity purposes.
+
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
     sass = require('gulp-sass'),
     imagemin = require('gulp-imagemin'),
     sourcemaps = require('gulp-sourcemaps'),
-    livereload = require('gulp-livereload'),
-    connect = require('gulp-connect');
-    
+    nodemon = require('gulp-nodemon'),
+    bsync = require('browser-sync').create();
+
 
 // Declare and set variable to take it easy on the typing. 
-        // This comment not withstanding
+// This comment not withstanding
 
 var env,
     outputDir,
     jsSources,
     angCtrlSrcs,
-    angSvcsSrcs,
     angCtrlDest,
-    angSvcDest,
-    htmlSources,
+    viewSources,
     imageDest,
     imageSources,
-    sassSources, 
+    sassSources,
     sassStyles,
     cssDest;
 
 
 env = process.env.NODE_ENV || 'development'
 
-if (env == 'development' ) {
+if (env == 'development') {
     outputDir = 'build/dev/';
     sassStyles = 'expanded';
     cssDest = outputDir + '/css';
     angCtrlDest = outputDir + '/scripts/controllers/';
-    angSvcDest = outputDir + '/scripts/services/';
     imageDest = outputDir + 'images';
 } else {
     outputDir = 'build/prod/';
     sassStyles = 'compressed';
     cssDest = outputDir + '/css';
     angCtrlDest = outputDir + '/scripts/controllers/';
-    angSvcDest = outputDir + '/scripts/services/';
     imageDest = outputDir + '/images';
 };
 
 jsSources = ['./src/scripts/*.js'];
 angCtrlSrcs = ['./src/scripts/controllers/*.js'];
-angSvcSrcs = ['./src/scripts/services/*.js'];
-htmlSources = ['./src/*.html'];
-sassSources = ['./src/sass/styles.sass'];
+viewSources = ['./src/views/*.pug', './src/views/partials/*.pug'];
+sassSources = ['./src/sass/*.sass', './src/sass//partials/*.sass'];
 imageSources = './src/images/*';
 
 
@@ -63,68 +61,61 @@ imageSources = './src/images/*';
 // ─── CONFIGURATION ──────────────────────────────────────────────────────────────
 //
 
-gulp.task('loadInHtml', 
-() => gulp.src(htmlSources).pipe(gulp.dest(outputDir))
-);
-
- 
 
 
-gulp.task('pic-min', function (){
+
+
+gulp.task('pic-min', function () {
     return gulp.src(imageSources)
         .pipe(imagemin())
         .pipe(gulp.dest(imageDest))
 });
- 
+
 gulp.task('sass', function () {
-  return gulp.src(sassSources)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(cssDest))
-    .pipe(connect.reload());
+    return gulp.src(sassSources)
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(cssDest))
 
 });
 
- gulp.task('loadjs', function(){
-     return gulp.src('./src/scripts/*.js')
-     .pipe(gulp.dest(outputDir));
+gulp.task('loadjs', function () {
+    return gulp.src('./src/scripts/*.js')
+        .pipe(gulp.dest(outputDir));
 
- });
-
-  gulp.task('load-ngSvcs', function(){
-     return gulp.src(angSvcSrcs)
-     .pipe(gulp.dest(angSvcDest));
- });
-
- gulp.task('load-ngCtrls', function(){
-     return gulp.src(angCtrlSrcs)
-     .pipe(gulp.dest(angCtrlDest));
- });
-
-gulp.task('connect', function() {
-  connect.server({
-    root: outputDir,
-    livereload: true
-  });
-  
-});
-
-gulp.task('reload', function(){
-  gulp.src(outputDir + 'index.html')
-   .pipe(connect.reload())
 });
 
 
+gulp.task('load-ngCtrls', function () {
+    return gulp.src(angCtrlSrcs)
+        .pipe(gulp.dest(angCtrlDest));
+});
+
+gulp.task('bsync', function () {
+    bsync.init({
+        proxy: "nichi.red:3005"
+    })
+});
+
+gulp.task('node', function () {
+    nodemon({
+        script: 'app.js',
+        ext: 'js html pug sass',
+        env: { 'NODE_ENV': process.env.NODE_ENV || 'development' }
+    }).on('start', function () {
+
+        setTimeout(bsync.reload, 2000);
+    })
+}); 
  
-gulp.task('watch', function() {
- 
-  gulp.watch('./sass/*.scss', ['sass']);
-  gulp.watch(jsSources , ['loadjs']);
-  gulp.watch(angSvcSrcs, ['load-ngSvcs']);
-  gulp.watch(angCtrlSrcs, ['load-ngCtrls']);
-  gulp.watch(outputDir + '*.html', ['reload']);
-  gulp.watch(sassSources, ['sass']);
+gulp.task('watch', function () {
+    gulp.watch(imageSources, ['pic-min']);
+    gulp.watch(sassSources, ['sass']);
+    gulp.watch(jsSources, ['loadjs']);
+    gulp.watch(angCtrlSrcs, ['load-ngCtrls']);
+    gulp.watch(outputDir + '*.html', ['reload']);
+    gulp.watch(sassSources, ['sass']);
 });
 
-gulp.task('default', ['connect', 'pic-min','sass', 'loadjs','load-ngCtrls','load-ngSvcs','watch']);
+gulp.task('default', ['bsync', 'pic-min', 'sass', 'loadjs', 'load-ngCtrls', 'watch', 'node']);

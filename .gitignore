@@ -3,4 +3,6 @@ node_modules
 src/images
 build/dev/images
 build/prod/images
-.config
+config
+workLog.txt
+notes.txt

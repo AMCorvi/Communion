@@ -33,6 +33,7 @@ router.get('/user_timeline/:user', function (req, res) {
 
          tweets = data;
          res.send(tweets);
+         console.log(tweets)
     });
     
 console.log(   `tweet request served for ${req.params.user}`)
