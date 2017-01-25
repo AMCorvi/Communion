@@ -30,6 +30,7 @@
     "holderjs": "^2.9.4",
     "material-design-lite": "^1.2.1",
     "node-soundcloud": "0.0.5",
+    "plangular-3": "^3.1.2",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.0"
   }

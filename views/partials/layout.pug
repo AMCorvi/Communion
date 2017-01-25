@@ -12,10 +12,13 @@ html(lang='en', ng-app='Nichi')
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js")
+    script(src="scripts/plangular.js")
     link(rel='stylesheet', type='', href='css/styles.css')
-
+    
   body
+    // Review and omit navigation (moved and to hero!) 
     include navigation.pug
+    
     include heroBanner.pug
     include featured-section.pug
     include music-section.pug

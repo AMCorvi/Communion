@@ -1,13 +1,21 @@
-&#featured-section
+#featured-section
     width: 100%
-    height: 50vw
+    height: 100%
     background-image: url("../images/yunglean.jpg")
     background-color: navajowhite
     background-size: cover
     background-attachment: fixed
     // border-bottom: 3px ridge lavenderblush
-    box-shadow: inset 30px 30px 130px 30px black
+    box-shadow: inset 30px 30px 130px 30px darken($base-prime, 30%)
+
+
     .cards  
-      padding-bottom: 400px
+      padding-bottom: 30px
+    
     .mdl-card
       float: left
+    
+      .mdl-card__media
+        img
+          width: 150%
+          height: 100%

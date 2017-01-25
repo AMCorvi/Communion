@@ -1,0 +1,26 @@
+
+// All sections width set to 100% just becuase.
+div.container
+  padding: 0
+  margin: 0
+  width: 100%
+
+// fix stuff clearly
+.cf
+  &:before
+    content: " "
+    // /* 1
+    display: table
+    // /* 2
+  &:after
+    content: " "
+    // /* 1
+    display: table
+    // /* 2
+    clear: both
+  zoom: 1
+
+// Set default space to the title header for each section 
+.plusBoxZero
+  margin: 0px 100% 20px 0px
+  padding: 10px 0px 0px 20px

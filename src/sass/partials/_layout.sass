@@ -1,37 +1,10 @@
-
-div.container
-  padding: 0
-  margin: 0
-  width: 100%
-
-.cf
-  &:before
-    content: " "
-    // /* 1
-    display: table
-    // /* 2
-  &:after
-    content: " "
-    // /* 1
-    display: table
-    // /* 2
-    clear: both
-  zoom: 1
-
-
-.plusBoxZero
-  margin: 0px 100% 20px 0px
-  padding: 10px 0px 0px 20px
-
-.menuDrawer
-  background-color: firebrick
-  font-size: 1.2em
-  font-weight: 600
-
-  .mdl-layout__header
-    background:
-      color: transparent
-
+// Set color variables... and whatever i have thought of yet 😝
+@import ./components/#variables 
+// Set default behaviors not implicit in MDL
+@import reset
+// Navigation and Hero (Navigation inside the hero)
 @import hero
+// Featured-Section.sass, Music-Section.sass & Twitter-Sections.sass 
 @import mainsection
+// No shoes because.... 
 @import footer

@@ -1,4 +1,4 @@
-
+'use strict'
 var express = require('express');
 var sound = require('node-soundcloud');
 var config = require('../config');
@@ -9,6 +9,7 @@ var router = express.Router();
 
 
 sound.init(config.soundcloud);
+
 
 
 // router.get('/connect', function (req, res) {
