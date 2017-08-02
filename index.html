@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Communion</title>
+    <link rel="stylesheet" href="./dev/css/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body ng-app='communion'>
+
+    <header>
+        <img id='logo' src="./dev/images/Communion-Coded Teal.png" alt="Communion"></img>
+        <div id="navigation">
+            <ul>
+                <li class="menuitem">Featured Music</li>
+                <li class="menuitem">Latest Music</li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="hero">
+
+        <div class="hero">
+        </div>
+
+        <div class="textpackage">
+            <h1>Hello</h1>
+            <p>This is a tagline</p>
+        </div>
+
+    </div>
+
+
+
+    <div id="Featured" ng-controller='soundCtrl'>
+
+
+        <h3 class='sectiontitle'>Featured Music</h3>
+
+<div class='content'>
+
+    <div id="audioplayer">
+
+        <audio id="music" src="./dev/music/California - Childish Gambino.mp3" controls="controls"></audio>
+
+        <div id="imgs" style="background-image:url('./dev/images/EistenMural.jpg')"></div>
+
+        <div id="controls">
+            <button id="pButton" class="play" onclick="playAudio()"></button>
+            <div id="timeline">
+                <div id="playhead"></div>
+            </div>
+        </div>
+
+    </div>
+        <div id="tracklist">
+            <p class="swipe"> swipe for more content ⤵︎  & click </p>
+            <ul>
+
+                <li ng-click='changeTrack(track.stream_url, track.artwork_url)' ng-repeat="track in communion.tracks">
+                    <p class="trackname"> {{ track.title }} &nbsp - &nbsp {{ track.user.username }} </p>
+                    <!-- <p class="trackartist">Einstein</p> -->
+                    <button class="musicDetails"><a href='{{ track.permalink_url }}'>Details</a></button>
+                </li>
+
+            </ul>  
+        </div>
+        </div>
+
+
+    </div>
+
+
+    <div ng-controller='hypeCtrl' id="Latest">
+
+        <h3>Latest Music</h3>
+
+
+        <div class="content">
+
+
+            <h4 class="contentlabel"> Communion Choice Tracks </h4>
+            <p class="swipe"> swipe for more content ➔ </p>
+
+            <div class="data">
+
+                <div class="card" ng-repeat='post in hypecommunionfavs' id='{{ post.postid }}'>
+
+                    <a ng-href="{{ post.posturl }}">
+                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
+                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
+                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                        </div>
+
+                        <div class="info">
+                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
+                        </div>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+
+            <h4> Popular Trending Music </h4>
+            <p class="swipe"> swipe for more content ➔ </p>
+
+            <div class="data">
+
+
+                <div class="card" ng-repeat='post in hypepop' id='{{ post.postid }}'>
+
+                    <a ng-href="{{ post.posturl }}">
+                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
+                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
+                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                        </div>
+
+                        <div class="info">
+                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+
+            <h4> Latest Trending Music </h4>
+            <p class="swipe"> swipe for more content ➔ </p>
+
+            <div class="data">
+
+
+                <div class="card" ng-repeat='post in hypelatest' id='{{ post.postid }}'>
+
+                    <a ng-href="{{ post.posturl }}">
+                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
+                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
+                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                        </div>
+
+                        <div class="info">
+                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+        <script type="text/javascript" charset="utf-8">
+
+            // timeline width adjusted for playhead
+            var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+            // play button event listenter
+            pButton.addEventListener("click", play);
+
+            // timeupdate event listener
+            music.addEventListener("timeupdate", timeUpdate, false);
+
+            // makes timeline clickable
+            timeline.addEventListener("click", function(event) {
+                moveplayhead(event);
+                music.currentTime = duration * clickPercent(event);
+            }, false);
+
+            // returns click as decimal (.77) of the total timelineWidth
+            function clickPercent(event) {
+                return (event.clientX - getPosition(timeline)) / timelineWidth;
+            }
+
+            // makes playhead draggable
+            playhead.addEventListener('mousedown', mouseDown, false);
+            window.addEventListener('mouseup', mouseUp, false);
+
+            // Boolean value so that audio position is updated only when the playhead is released
+            var onplayhead = false;
+
+            // mouseDown EventListener
+            function mouseDown() {
+                onplayhead = true;
+                window.addEventListener('mousemove', moveplayhead, true);
+                music.removeEventListener('timeupdate', timeUpdate, false);
+            }
+
+            // mouseUp EventListener
+            // getting input from all mouse clicks
+            function mouseUp(event) {
+                if (onplayhead == true) {
+                    moveplayhead(event);
+                    window.removeEventListener('mousemove', moveplayhead, true);
+                    // change current time
+                    music.currentTime = duration * clickPercent(event);
+                    music.addEventListener('timeupdate', timeUpdate, false);
+                }
+                onplayhead = false;
+            }
+            // mousemove EventListener
+            // Moves playhead as user drags
+            function moveplayhead(event) {
+                var newMargLeft = event.clientX - getPosition(timeline);
+
+                if (newMargLeft >= 0 && newMargLeft <= timelineWidth) {
+                    playhead.style.marginLeft = newMargLeft + "px";
+                }
+                if (newMargLeft < 0) {
+                    playhead.style.marginLeft = "0px";
+                }
+                if (newMargLeft > timelineWidth) {
+                    playhead.style.marginLeft = timelineWidth + "px";
+                }
+            }
+
+            // timeUpdate
+            // Synchronizes playhead position with current point in audio
+            function timeUpdate() {
+                var playPercent = timelineWidth * (music.currentTime / duration);
+                playhead.style.marginLeft = playPercent + "px";
+                if (music.currentTime == duration) {
+                    pButton.className = "";
+                    pButton.className = "play";
+                }
+            }
+
+            //Play and Pause
+            function play() {
+                // start music
+                if (music.paused) {
+                    music.play();
+                    // remove play, add pause
+                    pButton.className = "";
+                    pButton.className = "pause";
+                } else { // pause music
+                    music.pause();
+                    // remove pause, add play
+                    pButton.className = "";
+                    pButton.className = "play";
+                }
+            }
+
+            // Gets audio file duration
+            music.addEventListener("canplaythrough", function() {
+                duration = music.duration;
+            }, false);
+
+            // getPosition
+            // Returns elements left position relative to top-left of viewport
+            function getPosition(el) {
+                return el.getBoundingClientRect().left;
+            }
+
+
+        </script>
+
+        <!-- Modules -->
+        <script src="./dev/scripts/nichiApp.js"></script>
+        <!-- Factories -->
+        <!-- Controllers -->
+
+</body>
+
+</html>
