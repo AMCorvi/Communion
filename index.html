@@ -66,7 +66,7 @@
                     <button class="musicDetails"><a href='{{ track.permalink_url }}'>Details</a></button>
                 </li>
 
-            </ul>  
+            </ul>
         </div>
         </div>
 
@@ -83,9 +83,23 @@
 
 
             <h4 class="contentlabel"> Communion Choice Tracks </h4>
-            <p class="swipe"> swipe for more content ➔ </p>
+			<p ng-show="hypecommunionfavs" class="swipe"> swipe for more content ➔ </p>
 
             <div class="data">
+
+				<div id="loader" ng-hide="hypecommunionfavs">
+					<div class="sk-cube-grid">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+						<div class="sk-cube sk-cube3"></div>
+						<div class="sk-cube sk-cube4"></div>
+						<div class="sk-cube sk-cube5"></div>
+						<div class="sk-cube sk-cube6"></div>
+						<div class="sk-cube sk-cube7"></div>
+						<div class="sk-cube sk-cube8"></div>
+						<div class="sk-cube sk-cube9"></div>
+					</div>
+				</div>
 
                 <div class="card" ng-repeat='post in hypecommunionfavs' id='{{ post.postid }}'>
 
@@ -112,10 +126,23 @@
 
 
             <h4> Popular Trending Music </h4>
-            <p class="swipe"> swipe for more content ➔ </p>
+            <p ng-show="hypepop" class="swipe"> swipe for more content ➔ </p>
 
             <div class="data">
 
+				<div id="loader" ng-hide="hypecommunionfavs">
+					<div class="sk-cube-grid">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+						<div class="sk-cube sk-cube3"></div>
+						<div class="sk-cube sk-cube4"></div>
+						<div class="sk-cube sk-cube5"></div>
+						<div class="sk-cube sk-cube6"></div>
+						<div class="sk-cube sk-cube7"></div>
+						<div class="sk-cube sk-cube8"></div>
+						<div class="sk-cube sk-cube9"></div>
+					</div>
+				</div>
 
                 <div class="card" ng-repeat='post in hypepop' id='{{ post.postid }}'>
 
@@ -141,10 +168,24 @@
 
 
             <h4> Latest Trending Music </h4>
-            <p class="swipe"> swipe for more content ➔ </p>
+            <p ng-show="hypelatest" class="swipe"> swipe for more content ➔ </p>
 
             <div class="data">
 
+
+				<div id="loader" ng-hide="hypecommunionfavs">
+					<div class="sk-cube-grid">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+						<div class="sk-cube sk-cube3"></div>
+						<div class="sk-cube sk-cube4"></div>
+						<div class="sk-cube sk-cube5"></div>
+						<div class="sk-cube sk-cube6"></div>
+						<div class="sk-cube sk-cube7"></div>
+						<div class="sk-cube sk-cube8"></div>
+						<div class="sk-cube sk-cube9"></div>
+					</div>
+				</div>
 
                 <div class="card" ng-repeat='post in hypelatest' id='{{ post.postid }}'>
 

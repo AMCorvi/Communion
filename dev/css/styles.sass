@@ -285,6 +285,10 @@ header
 
 
 //Latest Section
+#loader
+  transform: scale(3)
+  position: relative
+  left: 48%
 #Latest
   background:
     attachment: fixed
@@ -448,3 +452,79 @@ header
     color: #2222b2
   100%
     color: #b222b2
+
+// angular on-load animation
+.animate-if
+  background: white
+  border: 1px solid black
+  padding: 10px
+  &.ng-enter, &.ng-leave
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s
+  &.ng-enter
+    opacity: 0
+  &.ng-leave
+    &.ng-leave-active
+      opacity: 0
+    opacity: 1
+  &.ng-enter.ng-enter-active
+    opacity: 1
+
+// loader animation
+.sk-cube-grid
+  width: 40px
+  height: 40px
+  margin: 10px auto 40px auto
+  .sk-cube
+    width: 33%
+    height: 33%
+    background-color: #b22222
+    float: left
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out
+  .sk-cube1
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+  .sk-cube2
+    -webkit-animation-delay: 0.3s
+    animation-delay: 0.3s
+  .sk-cube3
+    -webkit-animation-delay: 0.4s
+    animation-delay: 0.4s
+  .sk-cube4
+    -webkit-animation-delay: 0.1s
+    animation-delay: 0.1s
+  .sk-cube5
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+  .sk-cube6
+    -webkit-animation-delay: 0.3s
+    animation-delay: 0.3s
+  .sk-cube7
+    -webkit-animation-delay: 0s
+    animation-delay: 0s
+  .sk-cube8
+    -webkit-animation-delay: 0.1s
+    animation-delay: 0.1s
+  .sk-cube9
+    -webkit-animation-delay: 0.2s
+    animation-delay: 0.2s
+
+@-webkit-keyframes sk-cubeGridScaleDelay
+  0%, 70%, 100%
+    -webkit-transform: scale3D(1, 1, 1)
+    transform: scale3D(1, 1, 1)
+
+  35%
+    -webkit-transform: scale3D(0, 0, 1)
+    transform: scale3D(0, 0, 1)
+
+
+@keyframes sk-cubeGridScaleDelay
+  0%, 70%, 100%
+    -webkit-transform: scale3D(1, 1, 1)
+    transform: scale3D(1, 1, 1)
+
+  35%
+    -webkit-transform: scale3D(0, 0, 1)
+    transform: scale3D(0, 0, 1)
+
