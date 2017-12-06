@@ -206,11 +206,6 @@ header {
           margin-top: 1px;
           background-color: firebrick; }
 
-#loader {
-  transform: scale(3);
-  position: relative;
-  left: 48%; }
-
 #Latest {
   background-attachment: fixed;
   background-color: navajowhite;
@@ -245,6 +240,11 @@ header {
       border-radius: 40px;
       margin-bottom: -20px;
       margin-right: 20px; }
+
+#loader {
+  transform: scale(3);
+  position: relative;
+  left: 48%; }
 
 .card {
   text-decoration: inherit;
@@ -311,6 +311,30 @@ header {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex; }
+
+#Footer {
+  background-color: #b22222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 20vh;
+  margin-top: 0px; }
+  #Footer .links {
+    border-top: solid white 2px;
+    display: flex;
+    flex-direction: row;
+    flex-justify-content: space-around;
+    list-style: none;
+    padding-left: 0px; }
+    #Footer .links:first-child {
+      margin-left: 0px; }
+  #Footer .link {
+    color: white;
+    margin: auto 30px;
+    margin-top: 0.8em; }
+  #Footer .footCopy {
+    margin-top: 0px; }
 
 @keyframes colorsofbenetton {
   0% {

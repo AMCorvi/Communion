@@ -27,7 +27,7 @@
         </div>
 
         <div class="textpackage">
-            <h1>People are the music!</h1>
+            <h1>People are the music
             <p>Be the the vibe!</p>
         </div>
 
@@ -61,7 +61,7 @@
             <ul>
 
                 <li ng-click='changeTrack(track.stream_url, track.artwork_url)' ng-repeat="track in communion.tracks">
-                    <p class="trackname"> {{ track.title }} &nbsp - &nbsp {{ track.user.username }} </p>
+                    <p class="trackname"> {{ track.title }} &nbsp </p>
                     <!-- <p class="trackartist">Einstein</p> -->
                     <button class="musicDetails"><a href='{{ track.permalink_url }}'>Details</a></button>
                 </li>
@@ -207,6 +207,24 @@
 
         </div>
     </div>
+	<div id="Footer">
+
+		<ul class="links">
+			<li class="link">
+				<a class="fIcon" href="http://twitter.com/amcorvi">twitter</a>
+			</li>
+			<li class="link">
+				<a class="fIcon" href="http://github.com/amcorvi">github</a>
+			</li>
+			<li class="link">
+				<a class="fIcon" href="mailto:am@corvi.co">mail</a>
+			</li>
+		</ul>
+
+		<h5 class="footDesc">Built using <a href="http://github.com/amcorvi/hype5server">hype5server</a>, built based on the <a href=http://github.com/amcorvi/hype5">'Hype5'</a> npm module. Built on the <a href="http://angularjs.org">AngularJS</a> framework.</h4>
+		<h5 class="footCopy">&copy AMCorvi</h5>
+
+	 </div>
         <script type="text/javascript" charset="utf-8">
 
             // timeline width adjusted for playhead
@@ -313,7 +331,7 @@
         </script>
 
         <!-- Modules -->
-        <script src="./dev/scripts/nichiApp.js"></script>
+        <script src="./dev/scripts/communionApp.js"></script>
         <!-- Factories -->
         <!-- Controllers -->
 

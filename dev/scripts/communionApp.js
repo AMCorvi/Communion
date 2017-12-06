@@ -10,7 +10,8 @@ app.factory("soundcloud", [
       .then(
         //Succesful request function
         function(response) {
-          return response.data;
+		  console.log(response.data)
+          return response.data.slice(1,response.data.length).reverse();
         },
         //Handle Error func
         function(err) {
@@ -54,54 +55,48 @@ app.controller("soundCtrl", [
 app.factory("hypelatest", [
   "$http",
   function($http) {
-    return $http
-      .get("http://corax.dev/hype/top?type='latest'")
-      .then(
-        //Handle Succesful request
-        function(response) {
-          return response.data;
-        },
-        // handle request error
-        function(err) {
-          return console.log(err.data);
-        }
-      );
+    return $http.get("http://corax.dev/hype/top?type='latest'").then(
+      //Handle Succesful request
+      function(response) {
+        return response.data;
+      },
+      // handle request error
+      function(err) {
+        return console.log(err.data);
+      }
+    );
   }
 ]);
 
 app.factory("hypecommunionfavs", [
   "$http",
   function($http) {
-    return $http
-      .get("http://corax.dev/hype/remixes")
-      .then(
-        //Handle Succesful request
-        function(response) {
-          return response.data;
-        },
-        // handle request error
-        function(err) {
-          return console.log(err.data);
-        }
-      );
+    return $http.get("http://corax.dev/hype/remixes").then(
+      //Handle Succesful request
+      function(response) {
+        return response.data;
+      },
+      // handle request error
+      function(err) {
+        return console.log(err.data);
+      }
+    );
   }
 ]);
 
 app.factory("hypepop", [
   "$http",
   function($http) {
-    return $http
-      .get("http://corax.dev/hype/noremixes?=type='latest'")
-      .then(
-        //Handle Succesful request
-        function(response) {
-          return response.data;
-        },
-        // handle request error
-        function(err) {
-          return console.log(err.data);
-        }
-      );
+    return $http.get("http://corax.dev/hype/noremixes?=type='latest'").then(
+      //Handle Succesful request
+      function(response) {
+        return response.data;
+      },
+      // handle request error
+      function(err) {
+        return console.log(err.data);
+      }
+    );
   }
 ]);
 
@@ -111,7 +106,6 @@ app.controller("hypeCtrl", [
   "hypelatest",
   "hypecommunionfavs",
   function($scope, hypepop, hypelatest, hypecommunionfavs) {
-
     hypelatest.then(function(data) {
       $scope.hypelatest = data[2];
       delete $scope.hypelatest.version;
