@@ -55,7 +55,7 @@ app.factory("hypelatest", [
   "$http",
   function($http) {
     return $http
-      .get("http://hypem.com/playlist/latest/all/json/1/data.js")
+      .get("http://corax.dev/hype/top?type='latest'")
       .then(
         //Handle Succesful request
         function(response) {
@@ -73,7 +73,7 @@ app.factory("hypecommunionfavs", [
   "$http",
   function($http) {
     return $http
-      .get("http://hypem.com/playlist/loved/Redee/json/1/data.js")
+      .get("http://corax.dev/hype/remixes")
       .then(
         //Handle Succesful request
         function(response) {
@@ -91,7 +91,7 @@ app.factory("hypepop", [
   "$http",
   function($http) {
     return $http
-      .get("http://hypem.com/playlist/popular/all/json/1/data.js")
+      .get("http://corax.dev/hype/noremixes?=type='latest'")
       .then(
         //Handle Succesful request
         function(response) {
@@ -113,20 +113,21 @@ app.controller("hypeCtrl", [
   function($scope, hypepop, hypelatest, hypecommunionfavs) {
 
     hypelatest.then(function(data) {
-      $scope.hypelatest = data;
+      $scope.hypelatest = data[2];
       delete $scope.hypelatest.version;
+      console.log($scope.hypelatest);
       return $scope.hypelatest;
     });
 
     hypecommunionfavs.then(function(data) {
-      $scope.hypecommunionfavs = data;
+      $scope.hypecommunionfavs = data[2];
       delete $scope.hypecommunionfavs.version;
 
       return $scope.hypecommunionfavs;
     });
 
     hypepop.then(function(data) {
-      $scope.hypepop = data;
+      $scope.hypepop = data[2];
       delete $scope.hypepop.version;
       return $scope.hypepop;
     });

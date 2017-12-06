@@ -15,8 +15,8 @@
         <img id='logo' src="./dev/images/Communion-Coded Teal.png" alt="Communion"></img>
         <div id="navigation">
             <ul>
-                <li class="menuitem">Featured Music</li>
-                <li class="menuitem">Latest Music</li>
+                <a href="#Featured"><li class="menuitem">Featured Music</li></a>
+                <a href="#Latest"><li class="menuitem">Latest Music</li></a>
             </ul>
         </div>
     </header>
@@ -27,8 +27,8 @@
         </div>
 
         <div class="textpackage">
-            <h1>Hello</h1>
-            <p>This is a tagline</p>
+            <h1>People are the music!</h1>
+            <p>Be the the vibe!</p>
         </div>
 
     </div>
@@ -103,14 +103,14 @@
 
                 <div class="card" ng-repeat='post in hypecommunionfavs' id='{{ post.postid }}'>
 
-                    <a ng-href="{{ post.posturl }}">
-                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
-                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
-                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                    <a ng-href="{{ post.link }}">
+						<div class="label" style="{{ post.thumbnail }}">
+                            <h4 class="song">{{ post.artist }} - {{ post.song }} </h4>
+                            <h4 class="blogname">posted by '{{ post.blogName }}'</h4>
                         </div>
 
                         <div class="info">
-                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="description"> {{ post.descrip | limitTo:140 }} </p>
                             <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
                         </div>
                     </a>
@@ -146,14 +146,14 @@
 
                 <div class="card" ng-repeat='post in hypepop' id='{{ post.postid }}'>
 
-                    <a ng-href="{{ post.posturl }}">
-                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
-                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
-                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                    <a ng-href="{{ post.link }}">
+						<div class="label" style="{{ post.thumbnail }}">
+                            <h4 class="song">{{ post.artist }} - {{ post.song }} </h4>
+                            <h4 class="blogname">posted by '{{ post.blogName }}'</h4>
                         </div>
 
                         <div class="info">
-                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="description"> {{ post.descrip | limitTo:140 }} </p>
                             <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
                         </div>
                     </a>
@@ -189,14 +189,14 @@
 
                 <div class="card" ng-repeat='post in hypelatest' id='{{ post.postid }}'>
 
-                    <a ng-href="{{ post.posturl }}">
-                        <div class="label" style="background-image:url('{{ post.thumb_url }}')">
-                            <h4 class="song">{{ post.artist }} - {{ post.title}} </h4>
-                            <h4 class="blogname">posted by '{{ post.sitename }}'</h4>
+                    <a ng-href="{{ post.link }}">
+						<div class="label" style="{{ post.thumbnail }}">
+                            <h4 class="song">{{ post.artist }} - {{ post.song }} </h4>
+                            <h4 class="blogname">posted by '{{ post.blogName }}'</h4>
                         </div>
 
                         <div class="info">
-                            <p class="description"> {{ post.description | limitTo:140 }} </p>
+                            <p class="description"> {{ post.descrip | limitTo:140 }} </p>
                             <p class="time"> {{ post.dateposted | date: 'EEE H:m' }} </p>
                         </div>
                     </a>
