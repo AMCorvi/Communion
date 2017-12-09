@@ -55,7 +55,7 @@ app.controller("soundCtrl", [
 app.factory("hypelatest", [
   "$http",
   function($http) {
-    return $http.get("http://corax.dev/hype/top?type='latest'").then(
+    return $http.get("http://hypeserver.now.sh/hype/top?type='latest'").then(
       //Handle Succesful request
       function(response) {
         return response.data;
@@ -71,7 +71,7 @@ app.factory("hypelatest", [
 app.factory("hypecommunionfavs", [
   "$http",
   function($http) {
-    return $http.get("http://corax.dev/hype/remixes").then(
+    return $http.get("http://hypeserver.now.sh/hype/remixes").then(
       //Handle Succesful request
       function(response) {
         return response.data;
@@ -87,7 +87,7 @@ app.factory("hypecommunionfavs", [
 app.factory("hypepop", [
   "$http",
   function($http) {
-    return $http.get("http://corax.dev/hype/noremixes?=type='latest'").then(
+    return $http.get("http://hypeserver.now.sh/hype/noremixes?=type='latest'").then(
       //Handle Succesful request
       function(response) {
         return response.data;
@@ -107,21 +107,21 @@ app.controller("hypeCtrl", [
   "hypecommunionfavs",
   function($scope, hypepop, hypelatest, hypecommunionfavs) {
     hypelatest.then(function(data) {
-      $scope.hypelatest = data[2];
+      $scope.hypelatest = data[0];
       delete $scope.hypelatest.version;
       console.log($scope.hypelatest);
       return $scope.hypelatest;
     });
 
     hypecommunionfavs.then(function(data) {
-      $scope.hypecommunionfavs = data[2];
+      $scope.hypecommunionfavs = data[0];
       delete $scope.hypecommunionfavs.version;
 
       return $scope.hypecommunionfavs;
     });
 
     hypepop.then(function(data) {
-      $scope.hypepop = data[2];
+      $scope.hypepop = data[0];
       delete $scope.hypepop.version;
       return $scope.hypepop;
     });
